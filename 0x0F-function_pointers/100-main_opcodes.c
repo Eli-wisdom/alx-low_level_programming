@@ -39,10 +39,10 @@
 		{
 			if (i == bytes - 1)
 			{
-				printf("%02hhx\n", arr[i]);
+				printf("%02hhx\n", ar[i]);
 				break;
 			}
-			printf("%02hhx ", arr[i]);
+			printf("%02hhx ", ar[i]);
 		}
 		return (0);
 	}
