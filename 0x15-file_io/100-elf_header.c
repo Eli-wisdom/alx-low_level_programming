@@ -7,14 +7,14 @@
 #include <stdlib.h>
 
 void check_elf(unsigned char *e_ident);
-void print_magicNo(unsigned char *e_ident);
+void print_type(unsigned int e_type, unsigned char *e_ident);
 void print_class(unsigned char *e_ident);
 void print_dataVal(unsigned char *e_ident);
 void print_version(unsigned char *e_ident);
 void print_abiV(unsigned char *e_ident);
-void print_osabiVal(unsigned char *e_ident);
-void print_type(unsigned int e_type, unsigned char *e_ident);
 void print_entry(unsigned long int e_entry, unsigned char *e_ident);
+void print_magicNo(unsigned char *e_ident);
+void print_osabiVal(unsigned char *e_ident);
 void close_elf(int elf);
 
 /**
@@ -30,8 +30,7 @@ void check_elf(unsigned char *e_ident)
 		if (e_ident[index] != 127 &&
 		    e_ident[index] != 'E' &&
 		    e_ident[index] != 'L' &&
-		    e_ident[index] != 'F')
-		{
+		    e_ident[index] != 'F'){
 			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
 			exit(98);
 		}
@@ -287,4 +286,3 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	close_elf(o);
 	return (0);
 }
-
